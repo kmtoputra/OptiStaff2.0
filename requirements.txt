@@ -1,5 +1,7 @@
 streamlit
 psycopg2-binary
 pandas
+geopy
+supabase
 pillow
 python-docx
