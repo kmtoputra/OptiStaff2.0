@@ -967,13 +967,22 @@ else:
                 with st.container():
                     st.markdown(f"**Detail Tugas:** {row['task_name']}")
                     
-                    ref_photo = str(row.get('reference_photo', '')).strip()
-                    if len(ref_photo) > 10 and ref_photo.startswith('http'):
-                        c_img, c_inf = st.columns([1, 4])
+                    ref_photo = str(row.get("reference_photo", "")).strip()
+
+                    if len(ref_photo) > 10:
+
+                        c_img, c_inf = st.columns([1,4])
+
                         with c_img:
-                            foto_show(ref_photo, "Arahan Visual", use_col_width=True)
+                            foto_show(
+                                ref_photo,
+                                "📷 Referensi dari Team Leader"
+                            )
+
                         with c_inf:
-                            st.caption("Lampiran arahan dari Pengawas")
+                            st.info(
+                                "Foto ini merupakan referensi pekerjaan yang dikirim oleh Team Leader."
+                            )
 
                     cam = st.camera_input("Lampirkan Bukti Penyelesaian", key=f"cam_{row['task_id']}")
                     
